@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'fitness_tracker',
         'USER': 'root' ,
-        'PASSWORD': '@isPassword123',
+        'PASSWORD': '*****', #write your mysql Password here
         'HOST': 'localhost',
         'PORT' : '3306',
     }
