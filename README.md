@@ -34,3 +34,6 @@ The Fitness Tracker is a web application developed using Django and MySQL, desig
 2. Configure your mySql:
    ```
    Configure your MySQL database settings in fitness_tracker/settings.py
+## Project Video
+
+[![Watch the video](https://img.youtube.com/vi/nTQUwghvy5Q/default.jpg)]([https://youtu.be/nTQUwghvy5Q](https://youtu.be/Kn6D9fKqJEM?si=hSChg9BMq00sEKzT)https://youtu.be/Kn6D9fKqJEM?si=hSChg9BMq00sEKzT)
