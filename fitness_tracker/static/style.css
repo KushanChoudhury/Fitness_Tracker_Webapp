@@ -1,0 +1,179 @@
+
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+	margin: 0;
+	background-repeat: no-repeat;
+	background-attachment:scroll;
+	background-size: cover;
+    
+}
+.card-container {
+    display: flex;
+    justify-content: space-between; 
+    height: 600px;
+    
+  }
+
+
+
+
+.jumbotron {
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.card-img-top{
+    height: 400px;
+    width: 100%;
+}
+.card {
+	box-shadow: 5px 10px 10px;
+    display: inline-block;
+    margin: 0;
+    width: 600px;
+}
+
+.header {
+	margin: 10% 5% 0% 5%;
+}
+
+.row {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+
+#register-css{
+    color:black;
+}
+
+#contactButton {
+	position: absolute;
+	right: 10px;
+	top: 10px;;
+	border-style: solid;
+	border-width: 2px;
+	border-color: white;
+	padding: 10px;
+	font-size: 120%;
+	}
+
+#contactButton a {
+	font-family: 'Oswald', sans-serif;
+	color: white;
+	text-decoration: none;
+}
+
+#contactButton a:hover {
+	color: #32D9CB;
+}
+
+#mainJumbotron {	
+	background-image: url('background3.jpg');		
+	height: 100vh;
+	padding-top: 25%;
+	color: white;
+	font-family: 'Oswald', sans-serif;
+	margin-bottom: 0;
+    background-attachment: fixed;
+}
+
+#mainJumbotron h1 {
+	color: white;
+}
+
+#mainJumbotron .btn {
+	background-color: #32D9CB;
+	border: none;
+	color: #205072;
+	font-weight: bold;
+	margin-top: 3px;
+}
+
+#mainJumbotron a:hover {
+	background-color: #205072;
+	color: #32D9CB;
+	border: 2px #32D9CB;
+}
+
+#transparent_background {
+	background-color: rgba(0, 0, 0, 0.5);
+	padding: 20px;
+	width: 50%;
+    
+}
+
+#moreInfo {
+	margin: 50px;
+	font-family: 'Oswald', sans-serif;
+	padding: 50px;
+}
+
+
+
+
+/* contact us page */
+
+#contact_background {
+	background-color: rgba(211,211,211, 0.8);
+	width: 600px;
+	height: 600px;
+	position: absolute;
+	float: left;
+	margin-top: 15%;
+	margin-left: 5%;
+	margin-bottom: 5%;
+	border-radius: 25px;
+	padding: 20px;
+}
+
+
+
+
+/* sign up and login forms */
+
+
+.form_section {
+	width: 900px;
+	height: 425px;
+	background-color: lightgray;
+	
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+
+	margin: auto;
+}
+
+.form_image {
+	float: left;
+
+}
+
+.form_content {
+	padding: 20px;
+	float: left;
+	font-family: 'Oswald', sans-serif;
+}
+
+.form_content .btn {
+	background-color: #32D9CB;
+	border: none;
+	color: #205072;
+	font-weight: bold;
+	margin-top: 10px;
+}
+
+.form_content a:hover {
+	background-color: #205072;
+	color: #32D9CB;
+}
+
+#login_form {
+	margin-top: 50px;
+}

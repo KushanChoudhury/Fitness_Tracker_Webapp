@@ -1,0 +1,72 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    
+    <link rel="icon" type="image/png" href="{% static 'moifit_logo.png' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <style>
+        label {
+            font-size: 18px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="name"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        body {
+            background-image: url('{% static "contact.jpg" %}');
+        }
+    </style>
+</head>
+<body>
+
+<div id="contact_background">
+
+
+		<div class = "form_content">
+
+			<h4>Get in touch!</h4>
+
+			<p>Contact us with any questions or comments.</p>
+			
+			<div>
+			<form>
+
+					<label for="name">Name</label><br>
+					<input type="name"><br>
+
+					<label for="email">Email</label><br>
+					<input type="email"><br>
+
+					<label for="text">Subject</label><br>
+					<input type="text"><br>
+
+					<label for="text">Message</label><br>
+					<textarea type="text"></textarea><br>
+
+				<a class="btn btn-primary btn-lg" id="contact_button" href=# role="button">Submit</a>
+			
+			</form>
+
+		</div>
+
+
+</div>
+
+
+
+
+</body>
+</html>

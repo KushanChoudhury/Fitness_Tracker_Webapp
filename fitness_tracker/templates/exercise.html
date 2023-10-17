@@ -1,0 +1,310 @@
+{% load static %}
+<!DOCTYPE html>
+  <!-- Coding by CodingLab | www.codinglabweb.com -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="{% static 'style5.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    <link rel="icon" type="image/png" href="{% static 'moifit_logo.png' %}">
+
+    <!----===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+       .number {
+    text-align: right;
+    margin: 0; /* Remove any default margin to ensure proper alignment */
+}
+.video-container {
+            display: none;
+            text-align: center;
+
+        }
+        .button {
+  background-color: #0b5d94; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: #0b5d94; 
+  color: white; 
+  border: 2px solid #0b5d94;
+}
+
+.button1:hover {
+  background-color: white;
+  color: black;
+}
+
+ 
+
+#welcome-text {
+    font-size: 24px; /* Font size */
+}
+    </style>
+    <!--<title>Dashboard Sidebar Menu</title>--> 
+</head>
+<body>
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="{% static 'moifit_logo.png' %}" alt="Company Logo">
+                </span>
+
+                <div class="text logo-text">
+                    
+                </div>
+            </div>
+
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+
+                
+
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="{% url 'dashboard' %}">
+                            <i class='bx bx-home-alt icon' ></i>
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+
+
+
+                    <li class="nav-link" onclick="showVideo('module1')"><a href="#"><i class='bx bx-dumbbell icon' ></i><span class="text nav-text">Exercise 1</span></a></li>
+                    <li class="nav-link" onclick="showVideo('module2')"><a href="#"><i class='bx bx-dumbbell icon' ></i><span class="text nav-text">Exercise 2</span></a></li>                    
+                    <li class="nav-link" onclick="showVideo('module3')"><a href="#"><i class='bx bx-dumbbell icon' ></i><span class="text nav-text">Exercise 3</span></a></li>
+                    <li class="nav-link" onclick="showVideo('module4')"><a href="#"><i class='bx bx-dumbbell icon' ></i><span class="text nav-text">Exercise 4</span></a></li>
+                    <li class="nav-link" onclick="showVideo('module5')"><a href="#"><i class='bx bx-dumbbell icon' ></i><span class="text nav-text">Exercise 5</span></a></li>
+                    <li class="nav-link" onclick="showVideo('module6')"><a href="#"><i class='bx bx-dumbbell icon' ></i><span class="text nav-text">Exercise 6</span></a></li>
+
+                    
+
+                    
+
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="">
+                    <a href="{% url 'logout' %}">
+                        <i class='bx bx-log-out icon' ></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+
+                <li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark mode</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+                
+            </div>
+        </div>
+
+    </nav>
+
+    <section class="home">
+        <div class="text"><b>Exercises</b></div>
+        <div class="home-align"><p id="welcome-text">Welcome {{ user_first_name }}! 
+        </p>
+            <div class="video-container" id="module1">
+                <h2>Exercise 1: Arms Workout</h2>
+                <iframe width="80%" height="1000" src="https://www.youtube.com/embed/-SwqeFpf26Y?si=aYD3b8U1BF7fJWuN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <br><br><br>
+                {% if module1_status   %}
+                <button class="mark-as-completed-button button button1" disabled>Completed</button>
+                {% else %}
+                <form method="post">
+                    {% csrf_token %}
+                <button class="mark-as-completed-button button button1" onclick="markAsCompleted('module1')">Mark as Completed</button></form>
+                {% endif %}
+                <button class="next-button button button1" onclick="showVideo('module2')">Next</button>
+            </div>
+            
+        
+            <div class="video-container" id="module2">
+                <h2>Exercise 2: Shoulder and Legs Workout</h2>
+                <iframe width="80%" height="1000" src="https://www.youtube.com/embed/uBGYht2hSPU?si=t7Qz-KRf26fstuYP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <br><br><br>
+                    {% if module2_status   %}
+                <button class="mark-as-completed-button button button1" disabled>Completed</button>
+                {% else %}
+                <form method="post">
+                    {% csrf_token %}<button class="mark-as-completed-button button button1" onclick="markAsCompleted('module2')">Mark as Completed</button></form>
+                {% endif %}
+                <button class="next-button button button1" onclick="showVideo('module3')">Next</button>
+                
+            </div>
+            <div class="video-container" id="module3">
+                <h2>Exercise 3: Complete Chest Workout</h2>
+                <iframe width="80%" height="1000" src="https://www.youtube.com/embed/G-Z9BXM9Gy0?si=qF8N9f11yr6qjKqk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <br><br><br>
+                    {% if module3_status   %}
+                <button class="mark-as-completed-button button button1" disabled>Completed</button>
+                {% else %}
+                <form method="post">
+                    {% csrf_token %}<button class="mark-as-completed-button button button1" onclick="markAsCompleted('module3')">Mark as Completed</button></form>
+                {% endif %}
+                <button class="next-button button button1" onclick="showVideo('module4')">Next</button>
+
+            </div>
+        
+            <div class="video-container" id="module4">
+                <h2>Exercise 4: Back and Forearms</h2>
+                <iframe width="80%" height="1000" src="https://www.youtube.com/embed/byo9adVQ0Ps?si=JavXpaa9YsTE1U-Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <br><br><br>
+                    {% if module4_status   %}
+                <button class="mark-as-completed-button button button1" disabled>Completed</button>
+                {% else %}
+                <form method="post">
+                    {% csrf_token %}<button class="mark-as-completed-button button button1" onclick="markAsCompleted('module4')">Mark as Completed</button></form>
+                {% endif %}
+                <button class="next-button button button1" onclick="showVideo('module5')">Next</button>
+
+            </div>
+
+            <div class="video-container" id="module5">
+                <h2>Exercise 5: Leg Day</h2>
+                <iframe width="80%" height="1000" src="https://www.youtube.com/embed/Xfwa_tR_a5c?si=hpTZjOvT6eLk7D-4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <br><br><br>
+                    {% if module5_status %}
+                <button class="mark-as-completed-button button button1" disabled>Completed</button>
+                {% else %}
+                <form method="post">
+                    {% csrf_token %}<button class="mark-as-completed-button button button1">Mark as Completed</button></form>
+                {% endif %}
+                <button class="next-button button button1" onclick="showVideo('module6')">Next</button>
+
+            </div>
+            <div class="video-container" id="module6">
+                <h2>Exercise 6: Full Chest</h2>
+                <iframe width="80%" height="1000" src="https://www.youtube.com/embed/BwPH7crc_CM?si=XvpJWOusVN20Igwq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <br><br><br>
+                    {% if module6_status   %}
+                <button class="mark-as-completed-button button button1" disabled>Completed</button>
+                {% else %}
+                <form method="post">
+                    {% csrf_token %}<button class="mark-as-completed-button button button1" onclick="markAsCompleted('module6')">Mark as Completed</button></form>
+                {% endif %}
+            </div>
+             
+        </div>
+            
+    </section>
+    
+
+    <script>
+        const body = document.querySelector('body');
+        const sidebar = body.querySelector('nav');
+        const toggle = body.querySelector(".toggle");
+        const modeSwitch = body.querySelector(".mode"); // Update the selector to ".mode"
+        const modeText = body.querySelector(".mode-text");
+    
+        // Check local storage for dark mode preference
+        const isDarkMode = localStorage.getItem("darkMode") === "true";
+    
+        // Set initial dark mode state
+        if (isDarkMode) {
+            body.classList.add("dark");
+            modeText.innerText = "Light mode";
+        } else {
+            body.classList.remove("dark");
+            modeText.innerText = "Dark mode";
+        }
+    
+        toggle.addEventListener("click", () => {
+            sidebar.classList.toggle("close");
+        });
+    
+        modeSwitch.addEventListener("click", () => {
+            body.classList.toggle("dark");
+            const isDark = body.classList.contains("dark");
+    
+            if (isDark) {
+                modeText.innerText = "Light mode";
+                // Save the dark mode preference to local storage
+                localStorage.setItem("darkMode", "true");
+            } else {
+                modeText.innerText = "Dark mode";
+                // Save the light mode preference to local storage
+                localStorage.setItem("darkMode", "false");
+            }
+        });
+    </script>
+    <script>
+        function showVideo(moduleId) {
+            // Hide all video containers
+            const videoContainers = document.querySelectorAll('.video-container');
+            videoContainers.forEach(container => {
+                container.style.display = 'none';
+            });
+
+
+            // Show the selected video container
+            const selectedContainer = document.getElementById(moduleId);
+            if (selectedContainer) {
+                selectedContainer.style.display = 'block';
+            }
+        }
+        
+        function markAsCompleted(moduleId) {
+            console.log('markAsCompleted function called');
+            const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value; // Get the CSRF token from the form
+
+    // Send an AJAX request to update the completion status on the server
+    fetch(`/mark_completed/${moduleId}/`, {  // Construct the correct URL
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken, // Include the CSRF token in the headers
+        },
+    })
+    .then(response => {
+        if (response.ok) {
+            // Update the button text and disable it
+            const button = document.querySelector(`#${moduleId} .mark-as-completed-button`);
+            button.textContent = "Completed";
+            button.disabled = true;
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+
+
+    </script>
+    
+</body>
+</html>

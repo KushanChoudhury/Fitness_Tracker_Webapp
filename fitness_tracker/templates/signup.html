@@ -1,0 +1,152 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registration</title>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+        
+    <link rel="icon" type="image/png" href="{% static 'moifit_logo.png' %}">
+        <script src="//code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <style>
+            body {
+                background-image: url('{% static "gym.jpg" %}');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-attachment:fixed;
+            }
+            .container-box {
+            background-color: rgba(255, 255, 255, 0.7); /* Background box color with transparency */
+            padding: 20px; /* Add padding for spacing */
+            border-radius: 10px; /* Add rounded corners to the box */
+            max-width: 800px; /* Limit the width of the box */
+            margin: 0 auto; /* Center the box horizontally */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
+            margin-bottom: 20px;
+        }
+        .parent-container {
+        position: fixed;
+        height: 100vh; /* Ensure the parent container takes the full height of the viewport */
+    }
+        .container{
+            position:absolute;
+            top: 85%;
+            left: 30%;
+            transform: translate(-50%, -50%);
+        }
+        .form-control {
+    width: 135%;
+}
+        </style>
+    </head>
+<body>
+    
+
+    
+  
+  
+    <div class="container">
+        <div class="container-box">
+        <form class="form-horizontal" role="form" method="POST" >
+        {% csrf_token %}
+            <h2>Registration</h2>
+            <div class="form-group">
+                <label for="firstName" class="col-sm-3 control-label">First Name*</label>
+                <div class="col-sm-9">
+                    <input name="fname" type="text" id="firstName" placeholder="First Name" class="form-control" autofocus required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="lastName" class="col-sm-3 control-label">Last Name*</label>
+                <div class="col-sm-9">
+                    <input name="lname" type="text" id="lastName" placeholder="Last Name" class="form-control" autofocus required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email" class="col-sm-3 control-label">Email* </label>
+                <div class="col-sm-9">
+                    <input type="email" id="email" placeholder="Email" class="form-control" name= "email" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="username" class="col-sm-3 control-label">Username* </label>
+                <div class="col-sm-9">
+                    <input type="username" id="username" placeholder="Username" class="form-control" name= "username" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password" class="col-sm-3 control-label">Password*</label>
+                <div class="col-sm-9">
+                    <input name="pass1" type="password" id="password" placeholder="Password" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password" class="col-sm-3 control-label">Confirm Password*</label>
+                <div class="col-sm-9">
+                    <input name="pass2" type="password" id="password" placeholder="Password" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="birthDate" class="col-sm-3 control-label">Date of Birth*</label>
+                <div class="col-sm-9">
+                    <input name="dob" type="date" id="birthDate" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="phoneNumber" class="col-sm-3 control-label">Phone number </label>
+                <div class="col-sm-9">
+                    <input name="phoneNumber" type="phoneNumber" id="phoneNumber" placeholder="Phone number" class="form-control">
+                    <span class="help-block">Your phone number won't be disclosed anywhere </span>
+                </div>
+            </div>
+            <div class="form-group">
+                    <label for="Height" class="col-sm-3 control-label">Height* </label>
+                <div class="col-sm-9">
+                    <input name="height" type="number" id="height" placeholder="Please write your height in centimetres" class="form-control" required>
+                </div>
+            </div>
+             <div class="form-group">
+                    <label for="weight" class="col-sm-3 control-label">Weight* </label>
+                <div class="col-sm-9">
+                    <input name="weight" type="number" id="weight" placeholder="Please write your weight in kilograms" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="age" class="col-sm-3 control-label">Age* </label>
+            <div class="col-sm-9">
+                <input name="age" type="number" id="age" placeholder="Please write your age" class="form-control" required>
+            </div>
+        </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3">Gender</label>
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <label class="radio-inline">
+                                <input type="radio" id="femaleRadio" value="Female" name="gender">Female
+                            </label>
+                        </div>
+                        <div class="col-sm-4">
+                            <label class="radio-inline">
+                                <input type="radio" id="maleRadio" value="Male" name="gender">Male
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- /.form-group -->
+            <div class="form-group">
+                <div class="col-sm-9 col-sm-offset-3">
+                    <span class="help-block">*Required fields</span>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
+        </form>
+    </div>
+    </div>
+
+    
+</body>
+</html>

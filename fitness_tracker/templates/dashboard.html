@@ -1,0 +1,443 @@
+{% load static %}
+<!DOCTYPE html>
+  <!-- Coding by CodingLab | www.codinglabweb.com -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!----======== CSS ======== -->
+    
+    <link rel="stylesheet" href="{% static 'style6.css' %}">
+    <link rel="stylesheet" href="{% static 'style4.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    <link rel="icon" type="image/png" href="{% static 'moifit_logo.png' %}">
+    <!----===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+       .number {
+    text-align: right;
+    margin: 0; /* Remove any default margin to ensure proper alignment */
+}
+button[data-modal-target="modal1"] {
+    background-color: inherit; /* Use the same color as the background */
+    color: black; /* Text color, adjust as needed */
+    border: 2px solid black;
+    border-radius: 100px; /* Rounded edges */
+    padding: 10px 20px; /* Adjust padding as needed */
+    cursor: pointer;
+    font-weight :bold;
+}
+ 
+button[data-modal-target="modal1"]:hover {
+    background-color: #216dd7;
+    color: white; /* Change the background color on hover */
+}
+button[data-modal-target="modal2"] {
+    background-color: inherit; /* Use the same color as the background */
+    color: black; /* Text color, adjust as needed */
+    border: 2px solid black;
+    border-radius: 100px; /* Rounded edges */
+    padding: 10px 20px; /* Adjust padding as needed */
+    cursor: pointer;
+    font-weight :bold;
+}
+ 
+button[data-modal-target="modal2"]:hover {
+    background-color: #216dd7;
+    color: white; /* Change the background color on hover */
+}
+
+#welcome-text {
+    font-size: 24px; /* Font size */
+}
+.container-box-chart {
+            background-color: rgb(255, 255, 255); /* Background box color with transparency */
+            padding: 20px; /* Add padding for spacing */
+            border-radius: 10px; /* Add rounded corners to the box */
+            /* Limit the width of the box */
+            margin: 0 ; /* Center the box horizontally */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        .parent-container-chart {
+        position: absolute;
+        height: 100vh;
+        width: 100%; /* Ensure the parent container takes the full height of the viewport */
+    }
+        .container-chart{
+            position:relative;
+            width: 100%;
+        }
+        #stepsForm {
+    max-width: 400px; /* Adjust the maximum width as needed */
+    margin: 0 auto; /* Center the form horizontally */
+    padding: 20px;
+    background-color: #fff; /* Form background color */
+    border: 1px solid #ccc; /* Form border */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Box shadow */
+}
+
+/* Style form labels */
+#stepsForm label {
+    display: block; /* Display labels on separate lines */
+    margin-bottom: 10px; /* Add space between labels and inputs */
+}
+
+/* Style form inputs */
+#stepsForm input[type="number"] {
+    width: 100%; /* Make the input field full width */
+    padding: 10px; /* Add padding to the input field */
+    border: 1px solid #ccc; /* Input field border */
+    border-radius: 5px; /* Rounded corners for input */
+    font-size: 16px; /* Font size */
+}
+
+/* Style the submit button */
+#stepsForm button[type="submit"] {
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none;
+    border-radius: 5px; /* Rounded corners for button */
+    padding: 10px 20px; /* Padding for the button */
+    font-size: 16px; /* Font size */
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Optional hover effect for the button */
+#stepsForm button[type="submit"]:hover {
+    background-color: #0056b3; /* Change the background color on hover */
+}
+#caloriesForm {
+    max-width: 400px; /* Adjust the maximum width as needed */
+    margin: 0 auto; /* Center the form horizontally */
+    padding: 20px;
+    background-color: #fff; /* Form background color */
+    border: 1px solid #ccc; /* Form border */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Box shadow */
+}
+
+/* Style form labels */
+#caloriesForm label {
+    display: block; /* Display labels on separate lines */
+    margin-bottom: 10px; /* Add space between labels and inputs */
+}
+
+/* Style form inputs */
+#caloriesForm input[type="number"] {
+    width: 100%; /* Make the input field full width */
+    padding: 10px; /* Add padding to the input field */
+    border: 1px solid #ccc; /* Input field border */
+    border-radius: 5px; /* Rounded corners for input */
+    font-size: 16px; /* Font size */
+}
+
+/* Style the submit button */
+#caloriesForm button[type="submit"] {
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none;
+    border-radius: 5px; /* Rounded corners for button */
+    padding: 10px 20px; /* Padding for the button */
+    font-size: 16px; /* Font size */
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Optional hover effect for the button */
+#caloriesForm button[type="submit"]:hover {
+    background-color: #0056b3; /* Change the background color on hover */
+}
+.responsive-image {
+    max-width: 100%;
+    height: auto;
+}
+.image-container {
+    text-align: center; /* Center the image horizontally within its container */
+}
+
+    </style>
+    <!--<title>Dashboard Sidebar Menu</title>--> 
+</head>
+<body>
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="{% static 'moifit_logo.png' %}" alt="Company Logo">
+                </span>
+
+                <div class="text logo-text">
+                    
+                </div>
+            </div>
+
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+
+                
+
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-home-alt icon' ></i>
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="{% url 'update' %}">
+                            <i class='bx bx-refresh icon'  ></i>
+                            <span class="text nav-text">Update</span>
+                        </a>
+                    </li>
+
+                    
+
+                    <li class="nav-link">
+                        <a href="{% url 'exercise' %}">
+                            <i class='bx bx-dumbbell icon' ></i>
+                            <span class="text nav-text">Exercises</span>
+                        </a>
+                    </li>
+
+                    
+
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="">
+                    <a href="{% url 'logout' %}">
+                        <i class='bx bx-log-out icon' ></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+
+                <li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark mode</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+                
+            </div>
+        </div>
+
+    </nav>
+
+    <section class="home">
+        <div class="text"><b>Dashboard</b></div>
+        <div class="home-align"><p id="welcome-text">Welcome {{ user_first_name }}!</p>
+         <br>   
+         <div class="container">
+            <div class="row" style="display: flex; justify-content: space-between;">
+         
+         <div class="col-md-4 col-xl-3">
+            <div class="card bg-c-blue order-card">
+                <div class="card-block">
+                    <h4 class="m-b-20">Weight</h4>
+                    <h2 class="text-left">
+                        <i class="material-icons f-left">fitness_center</i>
+                        <p class="number"> {{ user_profile.weight }}</p>
+                    </h2>
+                </div>
+            </div>
+        </div>
+        
+                    
+            
+        <div class="col-md-4 col-xl-3">
+            <div class="card bg-c-green order-card">
+                <div class="card-block">
+                    <h4 class="m-b-20">Height</h4>
+                    <h2 class="text-left">
+                        <i class="material-icons f-left">height</i>
+                        <p class="number"> {{ user_profile.height }}</p>
+                    </h2>
+                </div>
+            </div>
+        </div>
+        
+            
+        <div class="col-md-4 col-xl-3">
+            <div class="card bg-c-yellow order-card">
+                <div class="card-block">
+                    <h4 class="m-b-20">Age</h4>
+                    <h2 class="text-left">
+                        <i class="material-icons f-left">cake</i>
+                        <p class="number"> {{ user_profile.age }}</p>
+                    </h2>
+                </div>
+            </div>
+        </div>
+        
+                    
+            
+                    <div class="col-md-4 col-xl-3">
+                        <div class="card bg-c-pink order-card">
+                            <div class="card-block">
+                                <h4 class="m-b-20">BMI</h4>
+                                <h2 class="text-left">
+                                    <i class="material-icons f-left">favorite</i>
+                                    <p class="number">{{ bmi|floatformat:2 }}</p>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    
+                    
+                </div>
+            </div>
+            <div class="container-chart">
+                <div class="container-box-chart">
+                    <button data-modal-target="modal1">Add Steps</button> <br>
+                    <div class="image-container"><img src="data:image/png;base64,{{ plot_data }}" alt="Steps Chart" class="responsive-image">
+                    </div>
+            </div>
+            </div>  
+            <div class="container-chart">
+                <div class="container-box-chart">
+                    <button data-modal-target="modal2">Add Calories Intake/Burned</button> <br>
+                    <div class="image-container"><img src="data:image/png;base64,{{ plot_data2 }}" alt="Calories Chart" class="responsive-image">
+                    </div>
+            </div>
+            </div>  
+        </div>
+        
+            
+    </section>
+
+    <div class="modal" id="modal1"> <!-- This is the background overlay -->
+        <div class="modal-content"> <!-- This is the actual modal/popup box -->
+            <span class="modal-close" id="closeModalBtn">&times;</span>
+            <h1>Add Steps</h1>
+            <form id="stepsForm" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="form_type" value="stepsForm">
+                <label for="numberOfSteps">Number of Steps:</label>
+                <input type="number" id="numberOfSteps" name="numberOfSteps" required><br><br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <div class="modal" id="modal2"> <!-- This is the background overlay -->
+        <div class="modal-content"> <!-- This is the actual modal/popup box -->
+            <span class="modal-close" id="closeModalBtn">&times;</span>
+            <h1>Add Steps</h1>
+            <form id="caloriesForm" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="form_type" value="caloriesForm"> 
+                <label for="Calories-burned">Calories Burned :</label>
+                <input type="number" id="Calories-burned" name="Calories-burned" required><br><br>
+                <label for="Calories-intake">Calories Intake :</label>
+                <input type="number" id="Calories-intake" name="Calories-intake" required><br><br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+      
+    <script>
+        const body = document.querySelector('body');
+        const sidebar = body.querySelector('nav');
+        const toggle = body.querySelector(".toggle");
+        const modeSwitch = body.querySelector(".mode"); // Update the selector to ".mode"
+        const modeText = body.querySelector(".mode-text");
+    
+        // Check local storage for dark mode preference
+        const isDarkMode = localStorage.getItem("darkMode") === "true";
+    
+        // Set initial dark mode state
+        if (isDarkMode) {
+            body.classList.add("dark");
+            modeText.innerText = "Light mode";
+        } else {
+            body.classList.remove("dark");
+            modeText.innerText = "Dark mode";
+        }
+    
+        toggle.addEventListener("click", () => {
+            sidebar.classList.toggle("close");
+        });
+    
+        modeSwitch.addEventListener("click", () => {
+            body.classList.toggle("dark");
+            const isDark = body.classList.contains("dark");
+    
+            if (isDark) {
+                modeText.innerText = "Light mode";
+                // Save the dark mode preference to local storage
+                localStorage.setItem("darkMode", "true");
+            } else {
+                modeText.innerText = "Dark mode";
+                // Save the light mode preference to local storage
+                localStorage.setItem("darkMode", "false");
+            }
+        });
+    </script>
+    <script>const modalTriggerButtons = document.querySelectorAll("[data-modal-target]");
+        const modals = document.querySelectorAll(".modal");
+        const modalCloseButtons = document.querySelectorAll(".modal-close");
+        
+        modalTriggerButtons.forEach(elem => {
+          elem.addEventListener("click", event => toggleModal(event.currentTarget.getAttribute("data-modal-target")));
+        });
+        modalCloseButtons.forEach(elem => {
+          elem.addEventListener("click", event => toggleModal(event.currentTarget.closest(".modal").id));
+        });
+        modals.forEach(elem => {
+          elem.addEventListener("click", event => {
+            if(event.currentTarget === event.target) toggleModal(event.currentTarget.id);
+          });
+        });
+        
+        // Maybe also close with "Esc"...
+        document.addEventListener("keydown", event => {
+          if(event.keyCode === 27 && document.querySelector(".modal.modal-show")) {
+            toggleModal(document.querySelector(".modal.modal-show").id);
+          }
+        });
+        
+        function toggleModal(modalId) {
+          const modal = document.getElementById(modalId);
+        
+          if(getComputedStyle(modal).display==="flex") { // alternatively: if(modal.classList.contains("modal-show"))
+            modal.classList.add("modal-hide");
+            setTimeout(() => {
+              document.body.style.overflow = "initial"; // Optional: in order to enable/disable page scrolling while modal is hidden/shown - in this case: "initial" <=> "visible"
+              modal.classList.remove("modal-show", "modal-hide");
+              modal.style.display = "none";      
+            }, 200);
+          }
+          else {
+            document.body.style.overflow = "hidden"; // Optional: in order to enable/disable page scrolling while modal is hidden/shown
+            modal.style.display = "flex";
+            modal.classList.add("modal-show");
+          }
+        }</script>
+</body>
+</html>
