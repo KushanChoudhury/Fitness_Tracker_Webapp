@@ -5,6 +5,7 @@
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
+- [Project Video](#project-video)
 
 ## Introduction
 
