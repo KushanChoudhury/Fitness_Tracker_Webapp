@@ -33,5 +33,5 @@ The Fitness Tracker is a web application developed using Django and MySQL, desig
    ```bash
    git clone https://github.com/your-username/fitness-tracker.git
 2. Configure your mySql:
-   '''bash
+   ```
    Configure your MySQL database settings in fitness_tracker/settings.py
