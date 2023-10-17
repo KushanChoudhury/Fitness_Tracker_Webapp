@@ -19,12 +19,8 @@ The Fitness Tracker is a web application developed using Django and MySQL, desig
 - Data validation and verification to ensure accurate tracking.
 
 ## Technologies Used
-![Python icon](https://techstack.dev/img/icons/python-icon.svg)
-![Django icon](https://techstack.dev/img/icons/django-icon.svg)
-![HTML icon](https://techstack.dev/img/icons/html-icon.svg)
-![CSS icon](https://techstack.dev/img/icons/css-icon.svg)
-![JavaScript icon](https://techstack.dev/img/icons/javascript-icon.svg)
-![Bootstrap icon](https://techstack.dev/img/icons/bootstrap-icon.svg)
+:snake: Python
+
 - Django: The web framework used to build the app.
 - MySQL: The database management system for storing user data.
 - HTML, CSS, JavaScript: Frontend development technologies.
