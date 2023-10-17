@@ -16,7 +16,6 @@ The Fitness Tracker is a web application developed using Django and MySQL, desig
 - BMI calculation based on user input.
 - Daily tracking of weight, age, height, steps, calories burned, and calorie intake.
 - Weekly graphical representation of fitness data.
-- Data export and sharing functionality.
 - Data validation and verification to ensure accurate tracking.
 
 ## Technologies Used
